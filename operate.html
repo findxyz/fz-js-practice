@@ -7,6 +7,26 @@ function operate(operater,operand1,operand2){
 	return operater(operand1,operand2);
 }
 var i = operate(add,operate(multiply,3,4),operate(divide,9,3));
-document.write("operate(add,operate(multiply,3,4),operate(divide,9,3))<br>(3*4)+(9/3) = " + i);
+document.write("operate(add,operate(multiply,3,4),operate(divide,9,3))<br>(3*4)+(9/3) = " + i + "<br><br>");
 
+var operators = new Object();
+operators.add = function (x,y){return x+y;};
+operators["subtract"] = function (x,y){return x-y;};
+operators["multiply"] = function (x,y){return x*y;};
+operators["divide"] = function (x,y){return x/y;};
+operators.pow = Math.pow;
+function operate2(op_name,operand1,operand2){
+	if(operators[op_name] == null){
+		return "unknow operator";
+	}else{
+		return operators[op_name](operand1,operand2);
+	}
+}
+var j = operate2("add","Hello",operate2("add"," ","World!"));
+// 使用预定义的函数Math.pow();
+var k = operate2("pow",10,2);
+var z = operate2("sin",3,5);
+document.write("operate2('add','Hello',operate2('add',' ','World!'))<br>Hello + World = " + j + "<br><br>");
+document.write("operate2('pow',10,2)<br>10*10 = " + k + "<br><br>");
+document.write("operate2('sin',3,5)<br>sin(3,5) = " + z + "<br><br>");
 </script>
