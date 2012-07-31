@@ -29,4 +29,28 @@ var z = operate2("sin",3,5);
 document.write("operate2('add','Hello',operate2('add',' ','World!'))<br>Hello + World = " + j + "<br><br>");
 document.write("operate2('pow',10,2)<br>10*10 = " + k + "<br><br>");
 document.write("operate2('sin',3,5)<br>sin(3,5) = " + z + "<br><br>");
+
+function testArgsObj(x,y,z){
+	try{
+		if(arguments.length != 3){
+			throw new Error("function testArgsObj called with " + arguments.length + " arguments ,but it expects 3 arguments.");
+		}
+	}catch(error){
+		return error.message;
+	}
+	return x+y+z;
+}
+document.write("function testArgsObj(x,y,z)" + "<br>");
+document.write("testArgsObj(1,2) = " + testArgsObj(1,2) + "<br>");
+document.write("testArgsObj(1,2,3) = " + testArgsObj(1,2,3) + "<br><br>");
+function max(){
+	var m = Number.NEGATIVE_INFINITY;
+	for(var i = 0; i < arguments.length; i++){
+		if(arguments[i] > m){
+			m = arguments[i];
+		}
+	}
+	return m;
+}
+document.write("max(10,83,12,54,9,2,33,17) = " + max(10,83,12,54,9,2,33,17) + "<br><br>");
 </script>
