@@ -1,0 +1,12 @@
+<script type="text/javascript">
+function add(x,y){return x+y;}
+function subtract(x,y){return x-y;}
+function multiply(x,y){return x*y;}
+function divide(x,y){return x/y;}
+function operate(operater,operand1,operand2){
+	return operater(operand1,operand2);
+}
+var i = operate(add,operate(multiply,3,4),operate(divide,9,3));
+document.write("operate(add,operate(multiply,3,4),operate(divide,9,3))<br>(3*4)+(9/3) = " + i);
+
+</script>
