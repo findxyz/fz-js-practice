@@ -53,4 +53,16 @@ function max(){
 	return m;
 }
 document.write("max(10,83,12,54,9,2,33,17) = " + max(10,83,12,54,9,2,33,17) + "<br><br>");
+
+function f(x){
+	alert(x);
+	arguments[0] = null;
+	alert(x);
+}
+//f(4);
+var a = function(x){
+	if(x <= 1) return 1;
+	return x * arguments.callee(x - 1);
+}
+alert(a(4));
 </script>
