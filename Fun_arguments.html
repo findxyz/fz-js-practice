@@ -1,0 +1,38 @@
+<script type="text/javascript">
+function testArgsObj(x,y,z){
+	try{
+		if(arguments.length != 3){
+			throw new Error("function testArgsObj called with " + arguments.length + " arguments ,but it expects 3 arguments.");
+		}
+	}catch(error){
+		return error.message;
+	}
+	return x+y+z;
+}
+document.write("function testArgsObj(x,y,z)" + "<br>");
+document.write("testArgsObj(1,2) = " + testArgsObj(1,2) + "<br>");
+document.write("testArgsObj(1,2,3) = " + testArgsObj(1,2,3) + "<br><br>");
+function max(){
+	var m = Number.NEGATIVE_INFINITY;
+	for(var i = 0; i < arguments.length; i++){
+		if(arguments[i] > m){
+			m = arguments[i];
+		}
+	}
+	return m;
+}
+document.write("max(10,83,12,54,9,2,33,17) = " + max(10,83,12,54,9,2,33,17) + "<br><br>");
+
+function f(x){
+	alert(x);
+	arguments[0] = null;
+	alert(x);
+}
+//f(4);
+var a = function(x){
+	if(x <= 1) return 1;
+	return x * arguments.callee(x - 1);
+}
+//alert(a(4));
+alert(a.length);
+</script>
