@@ -1,3 +1,55 @@
 <script type="text/javascript">
+/*
+function Rectangle(w,h){
+	this.width = w;
+	this.height = h;
+}
+function compute_area(){
+	return this.width * this.height;
+}
+var page = new Rectangle(5,10);
+page.area = compute_area;
+var a = page.area();
+document.write(a);
+*/
+function Rectangle_area(){return this.width * this.height;}
+function Rectangle_perimeter(){return 2*this.width + 2*this.height;}
+function Rectangle_set_size(w,h){this.width = w;this.height = h;}
+function Rectangle_enlarge(){this.width *= 2;this.height *= 2;}
+function Rectangle_shrink(){this.width /= 2;this.heigt /= 2;}
+function Rectangle(w,h){
 
+	// 初始化对象属性
+	this.width = w;
+	this.height = h;
+
+	// 定义对象方法
+	this.area = Rectangle_area;
+	this.perimeter = Rectangle_perimeter;
+	this.set_size = Rectangle_set_size;
+	this.enlarge = Rectangle_enlarge;
+	this.shrink = Rectangle_shrink;
+}
+var r = new Rectangle(2,2);
+var a = r.area();
+document.write("2,2 area:"+a+"<br>");
+// 边长增加一倍
+r.enlarge();
+var p = r.perimeter();
+document.write("4,4 perimeter:"+p+"<br>");
+
+function Circle(x,y,r){
+	this.x = x;
+	this.y = y;
+	this.r = r;
+}
+Circle.prototype.pi = 3.14;
+function Circle_circumference(){return 2*this.pi*this.r;}
+Circle.prototype.circumference = Circle_circumference;
+Circle.prototype.area = function(){return this.pi*this.r*this.r;}
+var c = new Circle(0,0,1);
+var a = c.area();
+var p = c.circumference();
+document.write(a+"<br>");
+document.write(p+"<br>");
 </script>
