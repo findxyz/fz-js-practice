@@ -12,6 +12,8 @@ page.area = compute_area;
 var a = page.area();
 document.write(a);
 */
+
+/*
 function Rectangle_area(){return this.width * this.height;}
 function Rectangle_perimeter(){return 2*this.width + 2*this.height;}
 function Rectangle_set_size(w,h){this.width = w;this.height = h;}
@@ -37,7 +39,9 @@ document.write("2,2 area:"+a+"<br>");
 r.enlarge();
 var p = r.perimeter();
 document.write("4,4 perimeter:"+p+"<br>");
+*/
 
+/*
 function Circle(x,y,r){
 	this.x = x;
 	this.y = y;
@@ -52,4 +56,39 @@ var a = c.area();
 var p = c.circumference();
 document.write(a+"<br>");
 document.write(p+"<br>");
+
+String.prototype.endsWith = function(c){
+	if(c == this.charAt(this.length -1)){
+		return true;
+	}else{
+		return false;
+	}
+}
+var message = "hello world";
+alert(message.endsWith("h"));
+alert(message.endsWith("d"));
+*/
+
+function Circle(radius){
+	this.r = radius;
+}
+Circle.PI = 3.14;
+Circle.prototype.area = function(){
+	// number float bug
+	return (this.r*10)*(this.r*10)*(Circle.PI*100)/10000;
+};
+Circle.MaxR = function(c1,c2){
+	if(c1.r > c2.r){
+		return c1;
+	}else{
+		return c2;
+	}
+};
+var a = new Circle(1.0);
+a.r = parseFloat(1.1);
+document.write("a's area = "+a.area());
+document.write("<br>");
+var b = new Circle(1.2);
+document.write("a's r is 1.1 ,b's r is 1.2 ,max r is :"+Circle.MaxR(a,b).r);
+document.write("<br>");
 </script>
