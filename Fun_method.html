@@ -77,6 +77,9 @@ Circle.prototype.area = function(){
 	// number float bug
 	return (this.r*10)*(this.r*10)*(Circle.PI*100)/10000;
 };
+Circle.prototype.toString = function(){
+	return "I'am Circle's toString func!";
+}
 Circle.MaxR = function(c1,c2){
 	if(c1.r > c2.r){
 		return c1;
@@ -90,5 +93,40 @@ document.write("a's area = "+a.area());
 document.write("<br>");
 var b = new Circle(1.2);
 document.write("a's r is 1.1 ,b's r is 1.2 ,max r is :"+Circle.MaxR(a,b).r);
+document.write("<br>");
+
+function Example(name){
+	this.name = name;
+}
+Example.prototype.toString = function (){return this.name;};
+var e = new Example("xiaoming");
+document.write("<br>");
+document.write(e.toString());
+document.write("<br>");
+//这就体现了apply的用途，因为e的toString遮盖了Object的prototype的toString，所以只能通过其他方法来调用Object的toString
+//相应的call应该也是如此
+document.write(Object.prototype.toString.apply(e));
+document.write("<br>");
+document.write(Circle.prototype.toString.call(e));
+document.write("<br>");
+document.write(e.hasOwnProperty("addr"));
+document.write("<br>");
+e.addr = "address";
+document.write(e.hasOwnProperty("addr"));
+document.write("<br>");
+document.write("propertyIsEnumerable(name):"+e.propertyIsEnumerable("name"));
+document.write("<br>");
+document.write("propertyIsEnumerable(addr):"+e.propertyIsEnumerable("addr"));
+document.write("<br>");
+document.write("propertyIsEnumerable(road):"+e.propertyIsEnumerable("road"));
+document.write("<br>");
+var o = new Object();
+document.write("Object.prototype.isPrototypeOf(o):"+Object.prototype.isPrototypeOf(o));
+document.write("<br>");
+document.write("Object.isPrototypeOf(o):"+Object.isPrototypeOf(o));
+document.write("<br>");
+document.write("o.isPrototypeOf(Object.prototype):"+o.isPrototypeOf(Object.prototype));
+document.write("<br>");
+document.write("Function.prototype.isPrototypeOf(Object):"+Function.prototype.isPrototypeOf(Object));
 document.write("<br>");
 </script>
