@@ -1,0 +1,52 @@
+<script type="text/javascript">
+var a = [1, 2, 3];
+document.write("var a = [1, 2, 3];");
+document.write("<br>");
+document.write("a.join()="+a.join());
+document.write("<br>");
+document.write("a.join('#')="+a.join('#'));
+document.write("<br>");
+
+document.write("<br>");
+
+var b = new Array(3);
+b[0] = 4;
+b[1] = 5;
+b[2] = 6;
+b.reverse();
+document.write("var b = [4,5,6];");
+document.write("<br>");
+document.write("b.reverse();");
+document.write("<br>");
+document.write("b.join()="+b.join());
+document.write("<br>");
+
+document.write("<br>");
+
+var c = new Array("banana","cherry","apple");
+c.sort();
+document.write("var c = new Array('banana','cherry','apple');");
+document.write("<br>");
+document.write("c.sort();");
+document.write("<br>");
+document.write("c.join()="+c.join());
+document.write("<br>");
+
+document.write("<br>");
+
+var d = [11,28,2,1111,34];
+d.sort();
+document.write("var d = [11,28,2,1111,34];");
+document.write("<br>");
+document.write("d.sort();");
+document.write("<br>");
+document.write("d.join()="+d.join());
+document.write("<br>");
+d.sort(function(a,b){
+	return a-b;
+});
+document.write("d.sort(function(a,b){return a-b;});");
+document.write("<br>");
+document.write("d.join()="+d.join());
+document.write("<br>");
+</script>
