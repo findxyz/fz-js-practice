@@ -49,4 +49,19 @@ document.write("d.sort(function(a,b){return a-b;});");
 document.write("<br>");
 document.write("d.join()="+d.join());
 document.write("<br>");
+
+document.write("<br>");
+
+var e = [1,2,3];
+//concat()不会改变原有数组，只有创建一个新的数组副本
+document.write("var e = [1,2,3];");
+document.write("<br>");
+document.write("e.concat(4,5)="+e.concat(4,5));
+document.write("<br>");
+document.write("e.concat([4,5])="+e.concat([4,5]));
+document.write("<br>");
+document.write("e.concat([4,5],[5,8])="+e.concat([4,5],[5,8]));
+document.write("<br>");
+//concat可以递归的展开元素为数组的数组，和JavaScript权威指南上面介绍的不一样
+document.write("e.concat(4,[5,[5,[8,9]]])="+e.concat(4,[5,[5,[8,9]]]));
 </script>
