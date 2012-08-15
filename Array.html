@@ -62,10 +62,9 @@ document.write("e.concat([4,5])="+e.concat([4,5]));
 document.write("<br>");
 document.write("e.concat([4,5],[5,8])="+e.concat([4,5],[5,8]));
 document.write("<br>");
-//concat可以递归的展开元素为数组的数组，和JavaScript权威指南上面介绍的不一样
-document.write("e.concat(4,[5,[5,[8,9]]])="+e.concat(4,[5,[5,[8,9]]]));
+//join的默认方法给结果带来了错觉，以为数组是展开了的，其实并没有展开，只是因为join默认的分隔符','造成了迷惑
+document.write("e.concat(4,[5,[5,[8,9]]]).join('#')="+e.concat(4,[5,[5,[8,9]]]).join('#'));
 document.write("<br>");
-
 document.write("<br>");
 
 var f = new Array(0,1,2,3,4,5,6);
@@ -111,9 +110,25 @@ document.write("<br>");
 document.write("g="+g.join()+"<br>gSplice4="+gSplice4.join()+"<br>");
 document.write("<br>");
 var gSplice5 = g.splice(2,1,'c','d','e',[5,6]);
-//会展开数组中的元素，又和权威指南第四版上介绍的不一样，而且数组这章中有很多错误的说法
 document.write("var gSplice5 = g.splice(2,1,'c','d','e',[5,6]);");
 document.write("<br>");
-document.write("g="+g.join()+"<br>gSplice5="+gSplice5.join()+"<br>");
+document.write("g.join('#')="+g.join('#')+"<br>gSplice5.join('#')="+gSplice5.join('#')+"<br>");
+document.write("<br>");
+
+var stack = [];
+document.write("var stack = [];");
+document.write("<br>");
+document.write("stack.push('xiaoming','xiaofang');//result:"+stack.push('xiaoming','xiaofang'));
+document.write("<br>");
+document.write("stack.pop();//result:"+stack.pop());
+document.write("<br>");
+document.write("stack.push(['a','b']);//result:"+stack.push(['a','b']));
+document.write("<br>");
+document.write("stack.join('#')="+stack.join('#'));
+document.write("<br>");
+//因为这个pop结果很吃惊，所以才会想到怎么去区分数组中存放的每一个元素是什么元素，是数组还是字符还是数字等等，这才回过头来考虑到是不是join方法的问题，所以换用了#做分隔符，结果发现正是由于分隔符是','导致了结果看起来像是把数组中的数组元素都展开了一样，其实并不是这样的
+document.write("stack.pop();//result:"+stack.pop());
+document.write("<br>");
+document.write("stack="+stack);
 document.write("<br>");
 </script>
