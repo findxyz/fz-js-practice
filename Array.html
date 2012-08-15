@@ -53,7 +53,7 @@ document.write("<br>");
 document.write("<br>");
 
 var e = [1,2,3];
-//concat()不会改变原有数组，只有创建一个新的数组副本
+//concat()不会改变原有数组，只是创建一个新的数组副本
 document.write("var e = [1,2,3];");
 document.write("<br>");
 document.write("e.concat(4,5)="+e.concat(4,5));
@@ -64,4 +64,56 @@ document.write("e.concat([4,5],[5,8])="+e.concat([4,5],[5,8]));
 document.write("<br>");
 //concat可以递归的展开元素为数组的数组，和JavaScript权威指南上面介绍的不一样
 document.write("e.concat(4,[5,[5,[8,9]]])="+e.concat(4,[5,[5,[8,9]]]));
+document.write("<br>");
+
+document.write("<br>");
+
+var f = new Array(0,1,2,3,4,5,6);
+document.write("var f = new Array(0,1,2,3,4,5,6);");
+document.write("<br>");
+document.write("//[x,y)");
+document.write("<br>");
+document.write("f.slice(1,4)="+f.slice(1,4));
+document.write("<br>");
+document.write("//-1 is the last one");
+document.write("<br>");
+document.write("f.slice(-4,-1)="+f.slice(-4,-1));
+document.write("<br>");
+document.write("//[3,)");
+document.write("<br>");
+document.write("f.slice(3)="+f.slice(3));
+
+document.write("<br>");
+
+var g = [0,1,2,3,4,5,6,7,8,9];
+document.write("var g = [0,1,2,3,4,5,6,7,8,9];");
+document.write("<br>");
+document.write("//delete (index,length),and the left element is g,the delete element also can repository<br>");
+document.write("<br>");
+var gSplice1 = g.splice(4);
+document.write("var gSplice1 = g.splice(4);");
+document.write("<br>");
+document.write("g="+g.join()+"<br>gSplice1="+gSplice1.join()+"<br>");
+document.write("<br>");
+var gSplice2 = g.splice(2,1);
+document.write("var gSplice2 = g.splice(2,1);");
+document.write("<br>");
+document.write("g="+g.join()+"<br>gSplice2="+gSplice2.join()+"<br>");
+document.write("<br>");
+var gSplice3 = g.splice(1,1);
+document.write("var gSplice3 = g.splice(1,1);");
+document.write("<br>");
+document.write("g="+g.join()+"<br>gSplice3="+gSplice3.join()+"<br>");
+document.write("<br>");
+var gSplice4 = g.splice(2,0,'a','b');
+document.write("var gSplice4 = g.splice(2,0,'a','b');");
+document.write("<br>");
+document.write("g="+g.join()+"<br>gSplice4="+gSplice4.join()+"<br>");
+document.write("<br>");
+var gSplice5 = g.splice(2,1,'c','d','e',[5,6]);
+//会展开数组中的元素，又和权威指南第四版上介绍的不一样，而且数组这章中有很多错误的说法
+document.write("var gSplice5 = g.splice(2,1,'c','d','e',[5,6]);");
+document.write("<br>");
+document.write("g="+g.join()+"<br>gSplice5="+gSplice5.join()+"<br>");
+document.write("<br>");
 </script>
