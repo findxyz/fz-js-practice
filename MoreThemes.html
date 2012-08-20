@@ -88,4 +88,18 @@ document.write("add_to_totals2(totals,1);");
 document.write("<br>");
 document.write("totals = "+totals);
 document.write("<br>");
+
+document.write("<br>");
+
+var y = "global";
+function constructFunction(){
+	var y = "local";
+	return new Function("return y;");
+}
+document.write('var y = "global";<br>');
+document.write('function constructFunction(){<br>');
+document.write('&nbsp;&nbsp;&nbsp;&nbsp;var y = "local";<br>');
+document.write('&nbsp;&nbsp;&nbsp;&nbsp;return new Function("return y;");<br>');
+document.write('}<br>');
+document.write("constructFunction()();//"+constructFunction()());
 </script>

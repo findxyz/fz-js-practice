@@ -54,4 +54,12 @@ document.write(a + "," + c + "," + square(6) + "<br>");
 var o = new Object();
 o.square = square;
 document.write(o.square(7) + "<br>");
+
+var scope = "global";
+function fun(){
+	alert(scope);
+	var scope = "local";
+	alert(scope);
+}
+fun();
 </script>
