@@ -1,0 +1,91 @@
+<script type="text/javascript">
+var n = 17;
+var binary_string = n.toString(2);
+var octal_string = "0"+n.toString(8);
+var hex_string = "0x"+n.toString(16);
+document.write("var n = 17;");
+document.write("<br>");
+document.write("binary_string="+binary_string);
+document.write("<br>");
+document.write("octal_string="+octal_string);
+document.write("<br>");
+document.write("hex_string="+hex_string);
+document.write("<br>");
+
+document.write("<br>");
+
+var a = 123456.789;
+document.write("var a = 123456.789;");
+document.write("<br>");
+document.write("a.toFixed(0);//"+a.toFixed(0));
+document.write("<br>");
+document.write("a.toFixed(2);//"+a.toFixed(2));
+document.write("<br>");
+
+document.write("<br>");
+
+document.write("parseInt('3 blind mice');//"+parseInt('3 blind mice'));
+document.write("<br>");
+document.write("parseFloat('3.14 meters');//"+parseFloat('3.14 meters'));
+document.write("<br>");
+document.write("parseInt('12.34');//"+parseInt('12.34'));
+document.write("<br>");
+document.write("parseInt('0XFF');//"+parseInt('0XFF'));
+document.write("<br>");
+document.write("parseInt('11',2);//"+parseInt('11',2));
+document.write("<br>");
+document.write("parseInt('ff',16);//"+parseInt('ff',16));
+document.write("<br>");
+document.write("parseInt('zz',36);//"+parseInt('zz',36));
+document.write("<br>");
+document.write("parseInt('077',8);//"+parseInt('077',8));
+document.write("<br>");
+document.write("parseInt('077',10);//"+parseInt('077',10));
+document.write("<br>");
+document.write("parseInt('eleven');//"+parseInt('eleven'));
+document.write("<br>");
+document.write("parseInt('$72.47');//"+parseInt('$72.47'));
+document.write("<br>");
+
+document.write("<br>");
+
+var totals = [1,2,3];
+//由于操作的直接是totals的引用，所以会改变totals数组中的值
+function add_to_totals(totals,x){
+	totals[0] = totals[0] + x;
+	totals[1] = totals[1] + x;
+	totals[2] = totals[2] + x;
+}
+add_to_totals(totals,1);
+document.write("var totals = [1,2,3];");
+document.write("<br>");
+document.write("function add_to_totals(totals,x){<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;totals[0] = totals[0] + x;<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;totals[1] = totals[1] + x;<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;totals[2] = totals[2] + x;<br>");
+document.write("}<br>");
+document.write("add_to_totals(totals,1);");
+document.write("<br>");
+document.write("totals = "+totals);
+document.write("<br>");
+//因为totals最后被赋予的是newtotals的引用，而这个引用只在函数内部有效，在函数外部totals的引用还是原来的引用，所以totals在外部的值不会改变
+function add_to_totals2(totals,x){
+	var newtotals = new Array(3);
+	newtotals[0] = totals[0] + x;
+	newtotals[1] = totals[1] + x;
+	newtotals[2] = totals[2] + x;
+	totals = newtotals;
+}
+add_to_totals2(totals,1);
+document.write("function add_to_totals2(totals,x){<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;var newtotals = new Array(3);<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;newtotals[0] = totals[0] + x;<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;newtotals[1] = totals[1] + x;<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;newtotals[2] = totals[2] + x;<br>");
+document.write("&nbsp;&nbsp;&nbsp;&nbsp;totals = newtotals;<br>");
+document.write("}<br>");
+document.write("add_to_totals2(totals,1);");
+document.write("<br>");
+document.write("totals = "+totals);
+document.write("<br>");
+</script>
