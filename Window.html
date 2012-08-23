@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Window Object</title>
+<script type="text/javascript">
+//var n = prompt("What is your name?");
+//document.write("Welcome to my page ,"+n);
+//defaultStatus = "Welcome! Click on underline blue text to navigate.";
+
+function display_time_in_status_line(){
+	var date = new Date();
+	var h = date.getHours();
+	var m = date.getMinutes();
+	var s = date.getSeconds();
+	var ampm = (h >= 12) ? "pm" : "am";
+	if(h > 12) h -= 12;
+	if(h == 0) h = 12;
+	if(m < 10) m = "0" + m;
+	if(s < 10) s = "0" + s;
+	var t = h + ':' + m + ':' + s + ' ' + ampm;
+	defaultStatus = t;
+}
+setInterval(display_time_in_status_line,1);
+//self关键字貌似不起作用
+window.onerror = function(){
+	alert("something was really wrong!");
+	return true;
+};
+var e = function(){
+	throw new Error("onerror???");
+};
+e();
+</script>
+</head>
+<body></body>
+</html>
