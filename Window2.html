@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Window2</title>
+<script type="text/javascript">
+//动画初始值
+//窗口位置及大小
+var x = 0;
+var y = 0;
+var w = 200;
+var h = 200;
+//移动频率
+var dx = 1;
+var dy = 1;
+//更新毫秒数
+var interval = 1;
+
+//创建要移动的新窗口
+//javascript:URL是一种显示短文档的简单方法
+//最后一个参数指定了窗口的大小
+var popWin = window.open("javascript:document.write('<h1>BOUNCE!</h1>');","","width="+w+",height="+h);
+popWin.moveTo(x,y);
+
+//每隔指定的毫秒数就使用setInteral()调用bounce()方法
+//保存返回值，以便我们能通过把他传递给clearInteral()方法来停止动画
+var interalId = window.setInterval("bounce()",interval);
+
+//每隔指定毫秒数，窗口就移动(dx,dy)个单位
+//当窗口到达屏幕边界时，它将弹回
+function bounce(){
+	//如果用户关闭了窗口，则停止动画
+	if(window.closed){
+		clearInterval(interalId);
+		return ;
+	}
+	//如果达到了左边界或右边界，就弹回
+	if(((x+dx) > (screen.availWidth-w)) || ((x+dx) < 0)){
+		dx = -dx;
+	}
+	//如果达到了上边界或下边界，就弹回
+	if(((y+dy) > (screen.availHeight-h)) || ((y+dy) < 0)){
+		dy = -dy;
+	}
+	x += dx;
+	y += dy;
+	popWin.moveTo(x,y);
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="stop" onclick="clearInterval(interalId);popWin.close();"/>
+</body>
+</html>
