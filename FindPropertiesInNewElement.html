@@ -1,17 +1,24 @@
 <script type="text/javascript">
-//查看新创建出来的对象中都有哪些属性
-function findPropertys(){
-	var element = document.createElement("input");
-	element.value="Use knowledge in need time!";
+var element = document.createElement("input");
+element.value="Use knowledge in need time !";
+//查看对象中都有哪些属性
+function findObjProperties(obj){
 	var count = 1;
-	for(var p in element){
+	for(var p in obj){
 		try{
-			document.write(count+".propertyName:"+p+" , propertyValue:"+element[p]+"<br>");
+			document.write(count+".propertyName:<font color='green'>"+p+"</font> , propertyValue:"+obj[p]+"<br>");
 		}catch(e){
-			alert(p);
+			document.write(count+".not found:<font color='red'>"+p+"</font><br>");
 		}
 		count++;
 	}
 };
-findPropertys();
+findObjProperties(element);
+document.write("<br>");
+function World(people,love){
+	this.people = people;
+	this.love = love;
+}
+var world = new World("chinese","a lot of love");
+findObjProperties(world);
 </script>
