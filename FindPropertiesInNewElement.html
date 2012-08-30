@@ -1,0 +1,17 @@
+<script type="text/javascript">
+//查看新创建出来的对象中都有哪些属性
+function findPropertys(){
+	var element = document.createElement("input");
+	element.value="Use knowledge in need time!";
+	var count = 1;
+	for(var p in element){
+		try{
+			document.write(count+".propertyName:"+p+" , propertyValue:"+element[p]+"<br>");
+		}catch(e){
+			alert(p);
+		}
+		count++;
+	}
+};
+findPropertys();
+</script>

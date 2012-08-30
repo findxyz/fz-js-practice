@@ -43,6 +43,11 @@ function bounce(){
 	x += dx;
 	y += dy;
 	popWin.moveTo(x,y);
+
+	var element = document.createElement("input");
+	element.type="button";
+	element.value="x:"+x+",y:"+y;
+	document.body.appendChild(element);
 }
 </script>
 </head>
