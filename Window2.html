@@ -17,7 +17,7 @@ var interval = 1;
 //创建要移动的新窗口
 //javascript:URL是一种显示短文档的简单方法
 //最后一个参数指定了窗口的大小
-var popWin = window.open("javascript:document.write('<h1>BOUNCE!</h1>');","","width="+w+",height="+h);
+var popWin = window.open("javascript:document.write('<h1>BOUNCE!</h1>');document.close();","","width="+w+",height="+h);
 popWin.moveTo(x,y);
 
 //每隔指定的毫秒数就使用setInteral()调用bounce()方法

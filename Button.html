@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript" src="FindProperties.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var today = new Date();
+document.write("TodayTime:"+today+"<br>");
+document.write("LastModified:"+document.lastModified+"<br>");
+document.close();
+</script>
+</body>
+<input id="btn" value="btn" type="button" />
+<script type="text/javascript">
+var button = document.createElement("input");
+button.name="btnObj";
+button.id="btnObj";
+button.value="I'am a btn obj";
+button.type="button";
+button.onclick=function(){alert('HelloClick!');};
+document.body.appendChild(button);
+findObjProperties(button,"button");
+</script>
+</html>

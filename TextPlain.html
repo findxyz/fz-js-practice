@@ -1,0 +1,13 @@
+<script type="text/javascript">
+var _console = null;
+function debug(msg){
+	_console = window.open('','console','width=600,height=400');
+	_console.document.open("text/plain");
+	_console.focus();
+	_console.document.writeln(msg);
+}
+</script>
+<script type="text/javascript">
+var n = 0;
+</script>
+<input name="btn" type="button" value="click" onclick="debug('You have click me : '+ ++n +'times.');"/>

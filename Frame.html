@@ -16,10 +16,10 @@
 			//安排在一秒后再次调用该方法
 			//由于调用框架的setTimeout()方法时，其中的字符串将在框架的环境中执行，
 			//所以必须给顶级窗口的属性加上前缀"parent"
-			w.setTimeout("parent.setColor(parent."+w.name+")",1000);
+			//w.setTimeout("parent.setColor(parent."+w.name+")",1000);
 
 			//我们还可以用更简单的方式来实现这一点，这个环境应该是调用时的环境，对于例子来说是顶级环境
-			//setTimeout('setColor('+w.name+')',1000);
+			setTimeout('setColor('+w.name+')',1000);
 		}
 		function start(){
 			for(var i=0; i<9; i++){
