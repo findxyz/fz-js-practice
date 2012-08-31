@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>color frames</title>
+	<script type="text/javascript">
+		function setColor(w){
+			//生成一种随机颜色
+			var r = Math.floor(Math.random()*256).toString(16);
+			var g = Math.floor(Math.random()*256).toString(16);
+			var b = Math.floor(Math.random()*256).toString(16);
+			var colorString = "#"+r+g+b;
+
+			//把框架的背景设置为该随机颜色
+			w.document.write("<body bgcolor='"+colorString+"'></body>");
+			w.document.close();
+
+			//安排在一秒后再次调用该方法
+			//由于调用框架的setTimeout()方法时，其中的字符串将在框架的环境中执行，
+			//所以必须给顶级窗口的属性加上前缀"parent"
+			w.setTimeout("parent.setColor(parent."+w.name+")",1000);
+
+			//我们还可以用更简单的方式来实现这一点，这个环境应该是调用时的环境，对于例子来说是顶级环境
+			//setTimeout('setColor('+w.name+')',1000);
+		}
+		function start(){
+			for(var i=0; i<9; i++){
+				setColor(window.frames[i])
+			}
+		}
+	</script>
+</head>
+<frameset rows="33%,33%,34%" cols="33%,33%,34%" onload="start();" frameborder="1">
+	<frame name="f1" src="javascript:''" />
+	<frame name="f2" src="javascript:''" />
+	<frame name="f3" src="javascript:''" />
+	<frame name="f4" src="javascript:''" />
+	<frame name="f5" src="javascript:''" />
+	<frame name="f6" src="javascript:''" />
+	<frame name="f7" src="javascript:''" />
+	<frame name="f8" src="javascript:''" />
+	<frame name="f9" src="javascript:''" />
+</frameset>
+</html>
