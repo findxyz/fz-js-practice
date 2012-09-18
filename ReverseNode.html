@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Reverse</title>
+<script type="text/javascript">
+function reverse(n){
+	var kids = n.childNodes;
+	if(kids.length > 1){
+		for(var i=kids.length-1;i>=0;i--){
+			alert(kids[i].innerHTML);
+			var c = n.removeChild(kids[i]);
+			alert(kids.length);
+			n.appendChild(c);
+			alert(kids.length);
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="reverse" onclick="reverse(document.getElementById('para'));" />
+<!-- Internet Explorer 会忽略节点之间生成的空白文本节点（比如换行字符），而 Mozilla 不这么做。因此，在上面的例子中，输出是不同的。http://www.w3school.com.cn/xmldom/prop_element_childnodes.asp -->
+<div id="para"><p>Paragraph 1</p><p>Paragraph 2</p><p>Paragraph 3</p><p>Paragraph 4</p></div>
+</body>
+
+</html>
