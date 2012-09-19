@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Reverse</title>
+<script type="text/javascript" src="Debug.js"></script>
 <script type="text/javascript">
 function reverse(n){
 	var kids = n.childNodes;
@@ -19,6 +20,7 @@ function embolden(node){
 	var parent = node.parentNode;
 	parent.replaceChild(bold,node);
 	bold.appendChild(node);
+	debug("debug msg");
 }
 </script>
 </head>
