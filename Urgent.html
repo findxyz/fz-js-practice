@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>urgent</title>
+</head>
+
+<body>
+<div id="urgent">The web server is under attack!</div>
+</body>
+
+<script type="text/javascript">
+var e = document.getElementById("urgent");
+var colors = ["white","yellow","orange","red"];
+var nextColor = 0;
+setInterval("e.style.backgroundColor=colors[nextColor++%colors.length];",500);
+</script>
+
+</html>
