@@ -6,8 +6,8 @@
 
 <body>
 	<div style="position:absolute;left:100px;top:100px;background-color:white;border:solid 1px black">
-		<div style="background-color:gray;border-bottom:dotted black;padding:3px;" onmousedown="beginDrag(this.parentNode,event);">Drag Me!</div>
-		<p>This is a test!</p>
+		<div style="background-color:yellow;border-bottom:dotted red;padding:3px;" onmousedown="if(event.shiftKey)beginDrag(this.parentNode,event);">Drag Me!</div>
+		<p>if(event.shiftKey)beginDrag(this.parentNode,event);</p>
 	</div>
 </body>
 </html>
