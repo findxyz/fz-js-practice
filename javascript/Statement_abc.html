@@ -1,0 +1,65 @@
+<script type="text/javascript">
+outerloop:
+for(var i = 0; i < 10; i++){
+
+	innerloop:
+	for(var j = 0; j < 10; j++){
+		if(j > 3) break;
+		if(i == 2) break innerloop;
+		if(i == 4) break outerloop;
+		document.write("i = " + i + " j = " + j + "<br>");
+	}
+}
+document.write("final i = " + i + " j = " + j + "<br>");
+for(var a = 0; a < 10; a++) document.write(i,"<br>");
+function f(x){
+	return x*x;
+}
+/*
+try{
+	var str = prompt("Please enter a num for square","");
+	if(isNaN(str)){
+		throw new Error("Enrty must be a num");
+	}
+	document.write("The result:"+f(str));
+}catch(e){
+	document.write(e);
+}
+function factorial(x){
+	if(x <= 1) return 1;
+	return x*factorial(x-1);
+}
+try{
+	var str = prompt("Please enter a num for x!","");
+	if(isNaN(str)){
+		throw new Error("Enrty must be a num");
+	}
+	document.write("The result:"+factorial(str));
+}catch(e){
+	document.write(e);
+}
+*/
+var f = function fact(x){if(x <= 1) return 1;else return x*fact(x-1);}
+//document.write("fact(9):"+fact(9));//无效的，必须使用f(9)进行函数调用
+document.write("f(9):"+f(9)+"<br>");
+var tensquare = (function (x){return x*x;})(10);
+document.write("tensquare:"+tensquare+"<br>");
+function square(x) {
+	return x*x;
+}
+var a = square(4);
+var b = square;
+var c = b(5);
+document.write(a + "," + c + "," + square(6) + "<br>");
+var o = new Object();
+o.square = square;
+document.write(o.square(7) + "<br>");
+
+var scope = "global";
+function fun(){
+	alert(scope);
+	var scope = "local";
+	alert(scope);
+}
+fun();
+</script>

@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Window Object</title>
+<script type="text/javascript">
+//var n = prompt("What is your name?");
+//document.write("Welcome to my page ,"+n);
+//defaultStatus = "Welcome! Click on underline blue text to navigate.";
+
+function display_time_in_status_line(){
+	var date = new Date();
+	var h = date.getHours();
+	var m = date.getMinutes();
+	var s = date.getSeconds();
+	var ampm = (h >= 12) ? "pm" : "am";
+	if(h > 12) h -= 12;
+	if(h == 0) h = 12;
+	if(m < 10) m = "0" + m;
+	if(s < 10) s = "0" + s;
+	var t = h + ':' + m + ':' + s + ' ' + ampm;
+	defaultStatus = t;
+}
+setInterval(display_time_in_status_line,1);
+/*
+//指定窗口默认错误，onerror必须返回true才会起作用
+//self关键字貌似不起作用
+window.onerror = function(){
+	alert("something was really wrong!");
+	return true;
+};
+var e = function(){
+	throw new Error("onerror???");
+};
+e();
+*/
+/*
+//打开一个新窗口，并可以移动窗口的位置
+//var openWin = window.open('http://www.baidu.com','','width=200,height=200');
+//openWin.moveTo(100,100);//可以将窗口的左上角移动到指定的坐标
+//openWin.moveBy(200,200);//可相对窗口的当前坐标把它移动指定的像素，right,bottom
+//openWin.resizeTo(500,500);//可以将窗口调整到指定宽高
+//openWin.resizeBy(500,500);//可将窗口增加或减少指定象素，width,height
+*/
+</script>
+</head>
+<body>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+<input type="button" value="scrollTo(0,10);" onclick="javascript:window.scrollTo(0,10);"/><br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+<input type="button" value="scrollTo(0,100);" onclick="javascript:window.scrollTo(0,100);"/><br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+<input type="button" value="scrollBy(0,50);add or sub" onclick="javascript:window.scrollBy(0,50);"/><br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+Text Text Text Text Text Text<br>
+</body>
+<script type="text/javascript">
+//2了，应该等到下面的文档都加载完再使用scrollTo，
+//放在最上面的javascript虽然也执行了，
+//但是由于文档中没有内容，所以当时还没有scrollbar，
+//进而没有效果
+window.scrollTo(0,200);
+</script>
+</html>

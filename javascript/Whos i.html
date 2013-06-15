@@ -1,0 +1,24 @@
+<script type="text/javascript">
+function a(){
+	var i = 0;
+	var div;
+	function b(){
+		if(!div){
+			div = document.createElement("div");
+			document.body.appendChild(div);
+		}
+		// 这个i是谁的？
+		div.innerHTML = ""+ i++ +"";
+	}
+	// 闭包，a以外的函数调用引用了a中的变量
+	return b;
+}
+var c = new Object();
+c.f = a();
+c.i = 10;
+</script>
+<body>
+	<div>
+		<input type="button" value="Whos i?" onclick="c.f();">
+	</div>
+</body>
