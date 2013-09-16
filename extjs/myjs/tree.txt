@@ -1,0 +1,12 @@
+[
+	{
+		text: 'child1',
+		leaf: true
+	},{
+		text: 'child2',
+		children: [{
+			text: 'child3',
+			leaf: true
+		}]
+	}
+]

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>tree</title>
+		<link rel="stylesheet" type="text/css" href="ext-2.3.0/resources/css/ext-all.css"/>
+		<script type="text/javascript" src="ext-2.3.0/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="ext-2.3.0/ext-all-debug.js"></script>
+		<script type="text/javascript">
+			Ext.onReady(function(){
+				var tree = new Ext.tree.TreePanel({
+					el: 'tree',
+					loader: new Ext.tree.TreeLoader({
+						dataUrl: 'tree.txt'
+					}),
+					autoHeight:true,
+					width: 200
+				});
+				var root = new Ext.tree.AsyncTreeNode({
+					id: 'root',
+					text: 'root'
+				});
+				tree.setRootNode(root);
+				tree.render();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="tree"></div>
+	</body>
+</html>
