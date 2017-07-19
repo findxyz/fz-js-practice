@@ -1,7 +1,5 @@
-```html
-<script type="text/javascript">
-```
 ```javascript
+<script type="text/javascript">
 var betterLife = 0;
 var doForBetterLife = function (study, practice) {
 	while (study && practice) {
@@ -9,7 +7,5 @@ var doForBetterLife = function (study, practice) {
 	}
 }
 doForBetterLife(1, 1);
-```
-```html
 </script>
 ```
